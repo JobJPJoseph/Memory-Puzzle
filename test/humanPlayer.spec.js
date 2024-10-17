@@ -48,5 +48,32 @@ describe('Human Player', function () {
 
     });
 
+    describe("formatInput", function () {
+
+        context('When the string is false', function () {
+
+            it('should return false, when the string is not valid', function () {
+                const input = "0 p";
+                const actual = humanPlayer.formatInput(input);
+                const expected = false;
+                expect(actual).to.equal(expected);
+            });
+
+        });
+
+        context('When the string is valid', function () {
+
+            it('should return the input in an object type', function () {
+                const input = "0 0";
+                const actual = humanPlayer.formatInput(input);
+                const expected = { row: 0, column: 0 };
+                expect(actual).to.deep.equal(expected).and.to.be.a('object');
+            });
+
+        });
+
+    });
+
+
 
 });
