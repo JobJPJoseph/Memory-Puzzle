@@ -66,14 +66,39 @@ describe('Human Player', function () {
             it('should return the input in an object type', function () {
                 const input = "0 0";
                 const actual = humanPlayer.formatInput(input);
-                const expected = { row: 0, column: 0 };
-                expect(actual).to.deep.equal(expected).and.to.be.a('object');
+                const expected = JSON.stringify({ row: 0, column: 0 });
+                expect(actual).to.equal(expected).and.to.be.a('string');
             });
 
         });
 
     });
 
+    describe('checkForInclusion', function () {
+
+        it('should return a Boolean on whether the input is included', function () {
+            // Just trying to validate the key not values
+            const input = JSON.stringify({ row: 1, column: 2 });
+
+            let coordinates = {};
+            let alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            for (let i = 0; i < 4; i++) {
+                let a = i;
+
+                for (let j = 0; j < 4; j++) {
+                    let b = j;
+                    let key = { row: a, column: b };
+
+                    coordinates[JSON.stringify(key)] = alpha[j];
+                }
+
+            }
+
+            expect((humanPlayer.checkForInclusion(input, coordinates))).to.be.true;
+        });
+
+    });
 
 
 });
