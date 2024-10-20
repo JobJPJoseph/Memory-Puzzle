@@ -1,4 +1,5 @@
 const { HumanPlayer } = require('../lib/humanPlayer');
+const { HashTable } = require('../lib/hash-table');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -74,13 +75,15 @@ describe('Human Player', function () {
 
     });
 
+    let coordinates = new HashTable();
+
     describe('checkForInclusion', function () {
 
         it('should return a Boolean on whether the input is included', function () {
             // Just trying to validate the key not values
             const input = JSON.stringify({ row: 1, column: 2 });
 
-            let coordinates = {};
+            // let coordinates = {};
             let alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
             for (let i = 0; i < 4; i++) {
@@ -89,8 +92,8 @@ describe('Human Player', function () {
                 for (let j = 0; j < 4; j++) {
                     let b = j;
                     let key = { row: a, column: b };
-
-                    coordinates[JSON.stringify(key)] = alpha[j];
+                    coordinates.insert(JSON.stringify(key), alpha[j]);
+                    // coordinates[JSON.stringify(key)] = alpha[j];
                 }
 
             }
@@ -100,5 +103,25 @@ describe('Human Player', function () {
 
     });
 
+    describe('getInputs', function () {
 
+        context('When the input is valid', function () {
+
+            it('should return if the player input is valid', async function () {
+                let bool = await humanPlayer.getInput(coordinates);
+                expect(bool).to.be.true;
+            }, 25000);
+
+        });
+
+        context('When the input is not valid', function () {
+
+            it('should return false when the input is not valid', async function () {
+                let bool = await humanPlayer.getInput(coordinates);
+                expect(bool).to.be.false;
+            }, 25000);
+
+        });
+
+    });
 });
