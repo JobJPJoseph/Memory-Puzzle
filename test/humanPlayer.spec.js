@@ -109,7 +109,7 @@ describe('Human Player', function () {
 
             it('should return if the player input is valid', async function () {
                 let bool = await humanPlayer.getInput(coordinates);
-                expect(bool).to.be.true;
+                return expect(bool).to.be.true;
             }, 25000);
 
         });
@@ -118,7 +118,7 @@ describe('Human Player', function () {
 
             it('should return false when the input is not valid', async function () {
                 let bool = await humanPlayer.getInput(coordinates);
-                expect(bool).to.be.false;
+                return expect(bool).to.be.false;
             }, 25000);
 
         });
