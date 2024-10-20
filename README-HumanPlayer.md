@@ -10,6 +10,7 @@
     3. Create a method called formatInput that will accept a string representing a player input.
         * The purpose of the method is to turn the input into an array type.
 
-    4. Create a method called `getCoordinates` that will accept object .
+    4. Create a method called `getInputs` that will accept object .
         * The purpose of this is to create a Promise and return it.
         * We need to create a closure called `askGuess` that will continueously ask for a person input.
+        * The object will represent a Hash Table that contains available coordinates for the player to choose.
