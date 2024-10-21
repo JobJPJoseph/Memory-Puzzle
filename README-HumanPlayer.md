@@ -14,3 +14,4 @@
         * The purpose of this is to create a Promise and return it.
         * We need to create a closure called `askGuess` that will continueously ask for a person input.
         * The object will represent a Hash Table that contains available coordinates for the player to choose.
+        * Note: Make sure the context is correct
