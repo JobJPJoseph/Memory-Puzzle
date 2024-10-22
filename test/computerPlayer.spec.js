@@ -12,6 +12,9 @@ describe('Computer Player', function () {
     });
 
     let computerPlayer;
+    let coordinates = new GenerateGrid();
+    coordinates.fillGrid();
+    coordinates.addRandLetters();
 
     beforeEach(function () {
        computerPlayer = new ComputerPlayer();
@@ -20,11 +23,11 @@ describe('Computer Player', function () {
     describe('contructor', function () {
 
         it('should set points to 0', function () {
-            // expect(computerPlayer.points).to.equal(0);
+            expect(computerPlayer.points).to.equal(0);
         });
 
         it('should set the memo to an empty Hash Table', function () {
-            // expect(computerPlayer.memo).to.be.a('object');
+            expect(computerPlayer.memo).to.be.a('object');
         });
 
     });
@@ -32,8 +35,22 @@ describe('Computer Player', function () {
     describe('pickRandCoordinate', function () {
 
         it('should return a random key:value pair', function () {
-            // let result = computerPlayer.pickRandCoordinate(coordinates);
-            // expect(result).to.be.a('object');
+            let result = computerPlayer.pickRandCoordinate(coordinates.grid);
+            expect(result).to.be.a('string');
+        });
+
+    });
+
+    describe('cacheCoordinate', function () {
+
+        it('should insert input into the memo property', function () {
+            let input = {};
+            let key = JSON.stringify({ row: 0, column: 2 });
+            let value = 'W';
+            input[key] = value;
+            computerPlayer.cacheCoordinate(input);
+
+            expect(computerPlayer.memo[key]).to.equal(value);
         });
 
     });
