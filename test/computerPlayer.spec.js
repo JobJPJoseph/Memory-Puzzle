@@ -55,4 +55,49 @@ describe('Computer Player', function () {
 
     });
 
+
+    describe('hasValue', function () {
+
+        context('When True', function () {
+
+            it('should return a coordinate different from the input but has the same value', function () {
+                let input = {};
+                let key = JSON.stringify({ row: 0, column: 2 });
+                let value = 'W';
+                input[key] = value;
+                computerPlayer.cacheCoordinate(input);
+
+                let input2 = {};
+                let key2 = JSON.stringify({ row: 1, column: 2 });
+                let value2 = "W";
+                input2[key2] = value2;
+
+                let result = computerPlayer.hasValue(input2);
+                expect(result).to.equal(key);
+            });
+
+        });
+
+        context('When False', function () {
+
+            it('should return false', function () {
+                let input = {};
+                let key = JSON.stringify({ row: 0, column: 2 });
+                let value = 'W';
+                input[key] = value;
+                computerPlayer.cacheCoordinate(input);
+
+                let input2 = {};
+                let key2 = JSON.stringify({ row: 1, column: 2 });
+                let value2 = "B";
+                input2[key2] = value2;
+
+                let result = computerPlayer.hasValue(input2);
+                expect(result).to.be.false;
+            });
+
+        });
+
+    });
+
 });
