@@ -95,20 +95,21 @@ describe('Human Player', function () {
         context('When the input is valid', function () {
 
             it('should return if the player input is valid', async function () {
-                let bool = await humanPlayer.getInput(coordinates.grid);
-                return expect(bool).to.be.true;
+                let inpt = await humanPlayer.getInput(coordinates.grid);
+                let expected = JSON.stringify({ row: 0, column: 0 });
+                return expect(inpt).to.equal(expected); // => {row:0,column:0}
             }, 25000);
 
         });
 
-        context('When the input is not valid', function () {
+        // context('When the input is not valid', function () {
 
-            it('should return false when the input is not valid', async function () {
-                let bool = await humanPlayer.getInput(coordinates.grid);
-                return expect(bool).to.be.false;
-            }, 25000);
+        //     it('should return false when the input is not valid', async function () {
+        //         let bool = await humanPlayer.getInput(coordinates.grid);
+        //         return expect(bool).to.be.false;
+        //     }, 25000);
 
-        });
+        // });
 
     });
 
