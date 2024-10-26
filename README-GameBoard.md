@@ -1,7 +1,7 @@
 # Game Board
 
 ## Tasks
-    1. We need to inport the Screen class.
+    1. We need to import the Screen class.
         * We need to fill the Screen grid
 
     2. Create a method called `generateHashTable`

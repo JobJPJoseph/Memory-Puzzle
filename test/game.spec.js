@@ -1,4 +1,4 @@
-const { GameBoard } = require('../lib/computerPlayer');
+const { GameBoard } = require('../lib/game');
 const { Screen } = require('../lib/screen');
 const { HashTable } = require('../lib/hash-table');
 const { GenerateGrid } = require('../lib/generateGrid')
@@ -14,7 +14,7 @@ describe('Game Board', function () {
 
     let game;
 
-    before(function () {
+    beforeEach(function () {
         game = new GameBoard();
     });
 
