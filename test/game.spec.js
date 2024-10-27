@@ -42,10 +42,46 @@ describe('Game Board', function () {
 
             }
 
+            expect(Object.keys(pairs).length > 1).to.be.true;
+
             for (let letter in pairs) {
-                expect(pairs[letter]).to.equal(2);
+                expect(pairs[letter] === 2).to.be.true;
             }
 
+        });
+
+        it('should initialize a property called grid', function () {
+            expect(game.grid).to.be.an.instanceOf(HashTable);
+        });
+
+        it('should fill the game.grid with a dash as a default values ', function () {
+            expect(game.grid.count > 1).to.be.true;
+
+            for (let i = 0; i < game.grid.data.length; i++) {
+                let node = game.grid.data[i];
+
+                if (node) {
+
+                    while (node) {
+                        expect(node.value).to.equal('-');
+                        node = node.next;
+                    }
+
+                }
+
+            }
+        });
+
+    });
+
+    describe('generateHashTable', function () {
+
+        it('should generate a Hash Table that includes coordinates whose values are currently a dash', function () {
+            let input = JSON.stringify({ row: 0, column: 0 });
+            game.grid.insert(input, 'W');
+            let result = game.generateHashTable();
+
+            expect(result.has(input)).to.be.false;
         });
 
     });
