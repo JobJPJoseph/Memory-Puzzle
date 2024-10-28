@@ -94,4 +94,26 @@ describe('Game Board', function () {
 
     });
 
+    describe('assignCoordinate', function () {
+
+        it('should use arg in Screen.grid and assign the value in GameBaord.grid', function () {
+            let input = JSON.stringify({ row: 0, column: 0 });
+            game.assignCoordinate(input);
+
+            let result = Screen.grid.read(input);
+            expect(game.grid.read(input)).to.equal(result);
+            game.printGameBoard();
+        });
+
+        it('should use arg to revert the GameBaord.grid coordinate back to a dash', function () {
+            let input = JSON.stringify({ row: 0, column: 0 });
+            game.assignCoordinate(input);
+            game.assignCoordinate(input);
+
+            expect(game.grid.read(input)).to.equal("-");
+            game.printGameBoard();
+        });
+
+    });
+
 });
