@@ -86,4 +86,12 @@ describe('Game Board', function () {
 
     });
 
+    describe('printGameBoard', function () {
+
+        it('should print the Game Board in a 4 x 4 format', function () {
+            game.printGameBoard();
+        });
+
+    });
+
 });
