@@ -1,7 +1,9 @@
 const { GameBoard } = require('../lib/game');
 const { Screen } = require('../lib/screen');
 const { HashTable } = require('../lib/hash-table');
-const { GenerateGrid } = require('../lib/generateGrid')
+const { GenerateGrid } = require('../lib/generateGrid');
+const { HumanPlayer } = require('../lib/humanPlayer');
+const { ComputerPlayer } = require('../lib/computerPlayer');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -13,9 +15,13 @@ describe('Game Board', function () {
     });
 
     let game;
+    let human;
+    let computer;
 
     beforeEach(function () {
         game = new GameBoard();
+        human = new HumanPlayer();
+        computer = new ComputerPlayer();
     });
 
     describe('Constructor', function () {
@@ -112,6 +118,20 @@ describe('Game Board', function () {
 
             expect(game.grid.read(input)).to.equal("-");
             game.printGameBoard();
+        });
+
+    });
+
+    describe('addPoints', function () {
+
+        it('should accept an instance of HumanPlayer and add 5 point to the points property', function () {
+            game.addPoints(human);
+            expect(human.points).to.equal(5);
+        });
+
+        it('should accept an instance of ComputerPlayer and add 5 point to the points property', function () {
+            game.addPoints(computer);
+            expect(computer.points).to.equal(5);
         });
 
     });
