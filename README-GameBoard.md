@@ -14,3 +14,5 @@
     6. Create a method called 'addPoints'
         * Upon a successful pair, we will add 5 points to the player. Both instances have a points property. In order to get the context correct we will send the instance as an argument
     7. Create a property called 'players' that nests all the players
+    8. Create a method called 'playRound'
+        * The purpose of this is to get the player's inputs and display them.

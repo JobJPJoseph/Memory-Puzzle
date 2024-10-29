@@ -142,4 +142,13 @@ describe('Game Board', function () {
 
     });
 
+    describe('playRound', function () {
+
+        it('should player half a round of the game', async function () {
+            await game.playRound(human); // {row: 0, column: 0} and {row: 0, column: 1}
+            return;
+        });
+
+    });
+
 });
