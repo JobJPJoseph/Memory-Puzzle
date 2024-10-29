@@ -11,3 +11,5 @@
     5. Create a method called `assignCoordinate`
         * The purpose is to recieve an input from the user as an argument. We are going to use the arg as an input for the Screen's hash Table and use it to set the value for Game's hash Table
             * We need to be able to call it again with the same arg and reverse the changes.
+    6. Create a method called 'addPoints'
+        * Upon a successful pair, we will add 5 points to the player. Both instances have a points property. In order to get the context correct we will send the instance as an argument
