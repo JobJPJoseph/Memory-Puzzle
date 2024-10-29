@@ -78,6 +78,12 @@ describe('Game Board', function () {
             }
         });
 
+        it('should initialize a property called players that nests all the players', function () {
+            expect(game.players).to.exist;
+            expect(game.players[0]).to.be.instanceOf(HumanPlayer);
+            expect(game.players[1]).to.be.instanceOf(ComputerPlayer);
+        });
+
     });
 
     describe('generateHashTable', function () {
