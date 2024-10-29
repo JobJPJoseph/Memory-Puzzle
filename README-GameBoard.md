@@ -16,3 +16,5 @@
     7. Create a property called 'players' that nests all the players
     8. Create a method called 'playRound'
         * The purpose of this is to get the player's inputs and display them.
+    9. Create a property called recentInputs
+        * This will be set that will keep record of the player's recent inputs

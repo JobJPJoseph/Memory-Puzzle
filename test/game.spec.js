@@ -1,5 +1,6 @@
 const { GameBoard } = require('../lib/game');
 const { Screen } = require('../lib/screen');
+const { MySet } = require('../lib/mySet');
 const { HashTable } = require('../lib/hash-table');
 const { GenerateGrid } = require('../lib/generateGrid');
 const { HumanPlayer } = require('../lib/humanPlayer');
@@ -84,6 +85,11 @@ describe('Game Board', function () {
             expect(game.players[1]).to.be.instanceOf(ComputerPlayer);
         });
 
+        it('should initialize a property called recentInputs that should represent a set', function () {
+            expect(game.set).to.exist;
+            expect(game.set).to.be.instanceOf(MySet);
+        });
+
     });
 
     describe('generateHashTable', function () {
@@ -146,6 +152,8 @@ describe('Game Board', function () {
 
         it('should player half a round of the game', async function () {
             await game.playRound(human); // {row: 0, column: 0} and {row: 0, column: 1}
+            let inpt = JSON.stringify({ row: 0, column: 0 });
+            expect(game.grid.read(inpt)).to.not.equal('-');
             return;
         });
 
