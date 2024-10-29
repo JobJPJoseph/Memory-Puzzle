@@ -78,6 +78,12 @@ describe('Game Board', function () {
             }
         });
 
+        it('should initialize a property called players that nests all the players', function () {
+            expect(game.players).to.exist;
+            expect(game.players[0]).to.be.instanceOf(HumanPlayer);
+            expect(game.players[1]).to.be.instanceOf(ComputerPlayer);
+        });
+
     });
 
     describe('generateHashTable', function () {
@@ -132,6 +138,15 @@ describe('Game Board', function () {
         it('should accept an instance of ComputerPlayer and add 5 point to the points property', function () {
             game.addPoints(computer);
             expect(computer.points).to.equal(5);
+        });
+
+    });
+
+    describe('playRound', function () {
+
+        it('should player half a round of the game', async function () {
+            await game.playRound(human); // {row: 0, column: 0} and {row: 0, column: 1}
+            return;
         });
 
     });
