@@ -22,3 +22,5 @@
         * It will keep track of the assigned pairs
     11. Create a method called 'adjustGridLength'
         * When called will subtrack 2 from the 'gridLength'
+    12. Create a method called 'run'
+        * The goal is to iterate through the players in a certain way.

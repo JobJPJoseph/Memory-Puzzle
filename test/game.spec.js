@@ -86,8 +86,8 @@ describe('Game Board', function () {
         });
 
         it('should initialize a property called recentInputs that should represent a set', function () {
-            expect(game.set).to.exist;
-            expect(game.set).to.be.instanceOf(MySet);
+            expect(game.recentInputs).to.exist;
+            expect(game.recentInputs).to.be.instanceOf(MySet);
         });
 
         it('should initialize a property called gridLength that represent the amount of dashes', function () {
@@ -164,15 +164,13 @@ describe('Game Board', function () {
 
     describe('playRound', function () {
 
-        // it('should player half a round of the game', async function () {
-        //     await game.playRound(human); // {row: 0, column: 0} and {row: 0, column: 1}
-        //     let inpt = JSON.stringify({ row: 0, column: 0 });
-        //     expect(game.grid.read(inpt)).to.not.equal('-');
-        //     return;
-        // });
+        it('should player half a round of the game', async function () {
+            await game.playRound(human); // {row: 0, column: 0} and {row: 0, column: 1}
+            let inpt = JSON.stringify({ row: 0, column: 0 });
+            expect(game.grid.read(inpt)).to.not.equal('-');
+            return;
+        });
 
     });
-
-
 
 });
