@@ -18,3 +18,7 @@
         * The purpose of this is to get the player's inputs and display them.
     9. Create a property called recentInputs
         * This will be set that will keep record of the player's recent inputs
+    10. Create a property called 'gridLength'
+        * It will keep track of the assigned pairs
+    11. Create a method called 'adjustGridLength'
+        * When called will subtrack 2 from the 'gridLength'
