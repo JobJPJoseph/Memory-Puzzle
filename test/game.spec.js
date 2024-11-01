@@ -87,7 +87,7 @@ describe('Game Board', function () {
 
         it('should initialize a property called recentInputs that should represent a set', function () {
             expect(game.recentInputs).to.exist;
-            expect(game.recentInputs).to.be.instanceOf(MySet);
+            expect(game.recentInputs).to.be.instanceOf(HashTable);
         });
 
         it('should initialize a property called gridLength that represent the amount of dashes', function () {
