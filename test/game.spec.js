@@ -1,5 +1,6 @@
 const { GameBoard } = require('../lib/game');
 const { Screen } = require('../lib/screen');
+const { MySet } = require('../lib/mySet');
 const { HashTable } = require('../lib/hash-table');
 const { GenerateGrid } = require('../lib/generateGrid');
 const { HumanPlayer } = require('../lib/humanPlayer');
@@ -84,6 +85,16 @@ describe('Game Board', function () {
             expect(game.players[1]).to.be.instanceOf(ComputerPlayer);
         });
 
+        it('should initialize a property called recentInputs that should represent a set', function () {
+            expect(game.recentInputs).to.exist;
+            expect(game.recentInputs).to.be.instanceOf(HashTable);
+        });
+
+        it('should initialize a property called gridLength that represent the amount of dashes', function () {
+            expect(game.gridLength).to.exist;
+            expect(game.gridLength).to.equal(game.grid.count);
+        });
+
     });
 
     describe('generateHashTable', function () {
@@ -142,10 +153,21 @@ describe('Game Board', function () {
 
     });
 
+    describe('adjustGrid.length', function () {
+
+        it('should substract 2 from the gridLength property', function () {
+            game.adjustGridLength();
+            expect(game.gridLength).to.equal(game.grid.count - 2);
+        });
+
+    });
+
     describe('playRound', function () {
 
         it('should player half a round of the game', async function () {
             await game.playRound(human); // {row: 0, column: 0} and {row: 0, column: 1}
+            let inpt = JSON.stringify({ row: 0, column: 0 });
+            expect(game.grid.read(inpt)).to.not.equal('-');
             return;
         });
 
