@@ -24,6 +24,7 @@ describe('Screen', function () {
         it(`should fill Screen.coordinates with 8 pairs letters from the alphabet`, function () {
             Screen.fillCoordinates();
             Screen.fillGrid();
+            console.log(Screen.grid);
 
             let pairs = {};
 
