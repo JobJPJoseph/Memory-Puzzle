@@ -1,15 +1,15 @@
 # MEMORY PUZZLE
 
 ## CONCEPTS TO IMPLEMENT:
-    * Hash Tables/Sets:
-    * Memorization:
-    * Asynchronousity (Promises/asyce-await):
-    * NPM Packages (Mocha/Chai):
-    * Single Responsibility Principle:
+    * Hash Tables/Sets: Done
+    * Memorization: Done
+    * Asynchronousity (Promises/asyce-await): Done
+    * NPM Packages (Mocha/Chai): Done
+    * Single Responsibility Principle: Done
     * Custom Errors:
     * Handling Errors:
-    * ES6:
-    * Stacks and Queues:
-    * Caching:
+    * ES6: Done
+    * Stacks and Queues: Done
+    * Caching: Done
     * Optimization:
-    * Context
+    * Context: Done
