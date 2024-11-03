@@ -6,8 +6,8 @@
     * Asynchronousity (Promises/asyce-await): Done
     * NPM Packages (Mocha/Chai): Done
     * Single Responsibility Principle: Done
-    * Custom Errors:
-    * Handling Errors:
+    * Custom Errors: Done
+    * Handling Errors: Done
     * ES6: Done
     * Stacks and Queues: Done
     * Caching: Done
