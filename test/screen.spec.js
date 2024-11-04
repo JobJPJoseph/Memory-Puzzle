@@ -27,43 +27,6 @@ describe('Screen', function () {
         expect(Screen.alphabetSet.count).to.equal(0);
     });
 
-    // describe('fillGrid', function () {
-
-    //     it(`should `, function () {
-    //         Screen.fillCoordinates();
-    //         Screen.fillGrid();
-
-    //         let pairs = {};
-
-
-
-    //         for (let i = 0; i < Screen.grid.data.length; i++) {
-    //             let node = Screen.grid.data[i];
-
-    //             if (node) {
-
-    //                 while (node) {
-
-    //                     if (pairs[node.value]) {
-    //                         pairs[node.value]++;
-    //                     } else {
-    //                         pairs[node.value] = 1;
-    //                     }
-    //                     node = node.next;
-    //                 }
-
-    //             }
-
-    //         }
-
-    //         for (let letter in pairs) {
-    //             expect(pairs[letter]).to.equal(2);
-    //         }
-
-    //     });
-
-    // });
-
     describe('fillAlphabetSet' , function () {
 
         it('should fill the set with letters from the alphabet', function () {
@@ -123,7 +86,6 @@ describe('Screen', function () {
             Screen.fillGrid();
 
             expect(Screen.gridHashTable.count > 1).to.be.true;
-            console.log(Screen.gridHashTable);
 
             expect(Screen.gridHashTable.read("a").length > 1).to.be.true;
 
@@ -131,14 +93,15 @@ describe('Screen', function () {
                 let node = Screen.gridHashTable.data[i];
 
                 if (node) {
-
                     expect(Screen.alphabetSet.has(node.key), 'if it has the key').to.be.true;
-                    expect(node.value, 'is the value an array').to.be.instanceOf('array');
-                    expect(node.value.length, 'is the array a length of 2').to.equal(2);
+                    expect(Screen.gridHashTable.read(node.key), 'is the value an array').to.be.a('array');
+                    expect(Screen.gridHashTable.read(node.key).length, 'is the array a length of 2').to.equal(2);
                 }
 
             }
 
+            console.log(Screen.gridHashTable);
+            console.log(Screen.gridHashTable.read('a'))
         });
 
     });
