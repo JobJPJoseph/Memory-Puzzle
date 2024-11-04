@@ -13,4 +13,4 @@
     * Caching: Done
     * Optimization: none
     * Context: Done
-    * Destructuring: node
+    * Destructuring: none
