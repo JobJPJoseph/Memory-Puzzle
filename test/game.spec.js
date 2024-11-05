@@ -3,8 +3,8 @@ const { Screen } = require('../lib/screen');
 // const { MySet } = require('../lib/mySet');
 const { HashTable } = require('../lib/hash-table');
 // const { GenerateGrid } = require('../lib/generateGrid');
-// const { HumanPlayer } = require('../lib/humanPlayer');
-// const { ComputerPlayer } = require('../lib/computerPlayer');
+const { HumanPlayer } = require('../lib/humanPlayer');
+const { ComputerPlayer } = require('../lib/computerPlayer');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -31,24 +31,6 @@ describe('Game Board', function () {
 
     describe('Constructor', function () {
 
-        // it('should fill the Screen.gridHashTable with coordinates', function () {
-        //     expect(Screen.gridHashTable.count > 1).to.be.true;
-
-        //     expect(Screen.gridHashTable.read("a").length > 1).to.be.true;
-
-        //     for (let i = 0; i < Screen.gridHashTable.data.length; i++) {
-        //         let node = Screen.gridHashTable.data[i];
-
-        //         if (node) {
-        //             expect(Screen.alphabetSet.has(node.key), 'if it has the key').to.be.true;
-        //             expect(Screen.gridHashTable.read(node.key), 'is the value an array').to.be.a('array');
-        //             expect(Screen.gridHashTable.read(node.key).length, 'is the array a length of 2').to.equal(2);
-        //         }
-
-        //     }
-
-        // });
-
         it('should initialize a property called grid', function () {
             expect(game.grid).to.be.an.instanceOf(HashTable);
         });
@@ -70,35 +52,44 @@ describe('Game Board', function () {
 
         });
 
-        // it('should initialize a property called players that nests all the players', function () {
-        //     expect(game.players).to.exist;
-        //     expect(game.players[0]).to.be.instanceOf(HumanPlayer);
-        //     expect(game.players[1]).to.be.instanceOf(ComputerPlayer);
-        // });
+        it('should initialize a property called players that nests all the players', function () {
+            expect(game.players).to.exist;
+            expect(game.players[0]).to.be.instanceOf(HumanPlayer);
+            expect(game.players[1]).to.be.instanceOf(ComputerPlayer);
+        });
 
-        // it('should initialize a property called recentInputs that should represent a set', function () {
-        //     expect(game.recentInputs).to.exist;
-        //     expect(game.recentInputs).to.be.instanceOf(HashTable);
-        // });
+        it('should initialize a property called recentInputs that should represent a set', function () {
+            expect(game.recentInputs).to.exist;
+            expect(game.recentInputs).to.be.instanceOf(HashTable);
+        });
 
-        // it('should initialize a property called gridLength that represent the amount of dashes', function () {
-        //     expect(game.gridLength).to.exist;
-        //     expect(game.gridLength).to.equal(game.grid.count);
-        // });
+        it('should initialize a property called gridLength that represent the amount of dashes', function () {
+            expect(game.gridLength).to.exist;
+            expect(game.gridLength).to.equal(game.grid.count);
+        });
 
     });
 
-    // describe('generateHashTable', function () {
+    describe('generateObject', function () {
 
-    //     it('should generate a Hash Table that includes coordinates whose values are currently a dash', function () {
-    //         let input = JSON.stringify({ row: 0, column: 0 });
-    //         game.grid.insert(input, 'W');
-    //         let result = game.generateHashTable();
+        it('should generate an object that includes coordinates whose values are currently a dash', function () {
+           let expected = game.generateObject();
 
-    //         expect(result.has(input)).to.be.false;
-    //     });
+            const rowMax = 6;
+            const colMax = 4;
 
-    // });
+            for (let i = 0; i < rowMax; i++) {
+
+                for (let j = 0; j < colMax; j++) {
+                    let coordinate = JSON.stringify({ row: i, column: j });
+                    expect(expected[coordinate]).to.equal("-");
+                }
+
+            }
+
+        });
+
+    });
 
     // describe('printGameBoard', function () {
 
