@@ -70,17 +70,26 @@ describe('Game Board', function () {
 
     });
 
-    // describe('generateHashTable', function () {
+    describe('generateObject', function () {
 
-    //     it('should generate a Hash Table that includes coordinates whose values are currently a dash', function () {
-    //         let input = JSON.stringify({ row: 0, column: 0 });
-    //         game.grid.insert(input, 'W');
-    //         let result = game.generateHashTable();
+        it('should generate an object that includes coordinates whose values are currently a dash', function () {
+           let expected = game.generateObject();
 
-    //         expect(result.has(input)).to.be.false;
-    //     });
+            const rowMax = 6;
+            const colMax = 4;
 
-    // });
+            for (let i = 0; i < rowMax; i++) {
+
+                for (let j = 0; j < colMax; j++) {
+                    let coordinate = JSON.stringify({ row: i, column: j });
+                    expect(expected[coordinate]).to.equal("-");
+                }
+
+            }
+
+        });
+
+    });
 
     // describe('printGameBoard', function () {
 
