@@ -25,8 +25,8 @@ describe('Game Board', function () {
 
     beforeEach(function () {
         game = new GameBoard();
-        // human = new HumanPlayer();
-        // computer = new ComputerPlayer();
+        human = new HumanPlayer();
+        computer = new ComputerPlayer();
     });
 
     describe('Constructor', function () {
@@ -133,38 +133,38 @@ describe('Game Board', function () {
 
     });
 
-    // describe('addPoints', function () {
+    describe('addPoints', function () {
 
-    //     it('should accept an instance of HumanPlayer and add 5 point to the points property', function () {
-    //         game.addPoints(human);
-    //         expect(human.points).to.equal(5);
-    //     });
+        it('should accept an instance of HumanPlayer and add 5 point to the points property', function () {
+            game.addPoints(human);
+            expect(human.points).to.equal(5);
+        });
 
-    //     it('should accept an instance of ComputerPlayer and add 5 point to the points property', function () {
-    //         game.addPoints(computer);
-    //         expect(computer.points).to.equal(5);
-    //     });
+        it('should accept an instance of ComputerPlayer and add 5 point to the points property', function () {
+            game.addPoints(computer);
+            expect(computer.points).to.equal(5);
+        });
 
-    // });
+    });
 
-    // describe('adjustGrid.length', function () {
+    describe('adjustGrid.length', function () {
 
-    //     it('should substract 2 from the gridLength property', function () {
-    //         game.adjustGridLength();
-    //         expect(game.gridLength).to.equal(game.grid.count - 2);
-    //     });
+        it('should substract 2 from the gridLength property', function () {
+            game.adjustGridLength();
+            expect(game.gridLength).to.equal(game.grid.count - 2);
+        });
 
-    // });
+    });
 
-    // describe('playRound', function () {
+    describe('playRound', function () {
 
-    //     it('should player half a round of the game', async function () {
-    //         await game.playRound(human); // {row: 0, column: 0} and {row: 0, column: 1}
-    //         let inpt = JSON.stringify({ row: 0, column: 0 });
-    //         expect(game.grid.read(inpt)).to.not.equal('-');
-    //         return;
-    //     });
+        it('should player half a round of the game', async function () {
+            await game.playRound(human); // {row: 0, column: 0} and {row: 0, column: 1}
+            let inpt = JSON.stringify({ row: 0, column: 0 });
+            expect(game.grid.read(inpt)).to.not.equal('-');
+            return;
+        });
 
-    // });
+    });
 
 });
