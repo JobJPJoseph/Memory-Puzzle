@@ -11,6 +11,6 @@
     * ES6: Done
     * Stacks and Queues: Done
     * Caching: Done
-    * Optimization: none
+    * Optimization: Done
     * Context: Done
     * Destructuring: none
