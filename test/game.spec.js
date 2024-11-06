@@ -91,35 +91,47 @@ describe('Game Board', function () {
 
     });
 
-    // describe('printGameBoard', function () {
+    describe('printGameBoard', function () {
 
-    //     it('should print the Game Board in a 4 x 4 format', function () {
-    //         game.printGameBoard();
-    //     });
+        it('should print the Game Board in a 4 x 4 format', function () {
+            game.printGameBoard();
+        });
 
-    // });
+    });
 
-    // describe('assignCoordinate', function () {
+    describe('findCoordinate', function () {
 
-    //     it('should use arg in Screen.grid and assign the value in GameBaord.grid', function () {
-    //         let input = JSON.stringify({ row: 0, column: 0 });
-    //         game.assignCoordinate(input);
+        it('should return a character from searching the Screen.gridHashTable with the given coordinate', function () {
+            let input = JSON.stringify({ row: 0, column: 0 });
+            let expected = game.findCoordinate(input);
+            console.log(expected);
+            expect(Screen.gridHashTable.has(expected)).to.be.true;
 
-    //         let result = Screen.grid.read(input);
-    //         expect(game.grid.read(input)).to.equal(result);
-    //         game.printGameBoard();
-    //     });
+        });
 
-    //     it('should use arg to revert the GameBaord.grid coordinate back to a dash', function () {
-    //         let input = JSON.stringify({ row: 0, column: 0 });
-    //         game.assignCoordinate(input);
-    //         game.assignCoordinate(input);
+    });
 
-    //         expect(game.grid.read(input)).to.equal("-");
-    //         game.printGameBoard();
-    //     });
+    describe('assignCoordinate', function () {
 
-    // });
+        it('should use arg in Screen.grid and assign the value in GameBaord.grid', function () {
+            let input = JSON.stringify({ row: 0, column: 0 });
+            game.assignCoordinate(input);
+
+            let result = game.findCoordinate(input);
+            expect(game.grid.read(input)).to.equal(result);
+            game.printGameBoard();
+        });
+
+        it('should use arg to revert the GameBaord.grid coordinate back to a dash', function () {
+            let input = JSON.stringify({ row: 0, column: 0 });
+            game.assignCoordinate(input);
+            game.assignCoordinate(input);
+
+            expect(game.grid.read(input)).to.equal("-");
+            game.printGameBoard();
+        });
+
+    });
 
     // describe('addPoints', function () {
 
